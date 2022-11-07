@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class Posts{
     @Id
     private Long userId;
-    private Long id;
+    private int id;
     private String title;
     private String body;
 

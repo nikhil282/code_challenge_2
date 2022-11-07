@@ -60,7 +60,7 @@ public class PostService {
             List<Posts> list = new ArrayList<>(Arrays.asList((user)));
             Posts post4 = new Posts();
             post4.setUserId(4L);
-            post4.setId(44L);
+            post4.setId(44);
             post4.setTitle("1800Flowers");
             post4.setBody("1800Flowers");
             list.replaceAll(posts1 -> posts1);
