@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ class PostControllerTest {
         user1.setTitle("1800 Flowers");
         user1.setBody("1800 Flowers");
         list.add(user1);
-        //assertEquals(1L,list.get(1).getUserId());
+        assertEquals(1L,list.get(1).getUserId());
         assertEquals(1,list.get(1).getId());
         assertEquals("1800 Flowers",list.get(1).getTitle());
         assertEquals("1800 Flowers",list.get(1).getBody());
@@ -43,6 +44,8 @@ class PostControllerTest {
         Map<String, Integer> map1 = new HashMap<>();
         map.forEach((k, v) -> {map1.put("userId " + k+" : ", v.size());});
         assertNotNull(map1);
+        Mockito.when(postController.alluserDetails()).thenReturn(map1);
+        assertNotNull(postService.userId());
     }
 
 
@@ -62,5 +65,7 @@ class PostControllerTest {
             assertEquals(1L,list.get(1).getId());
             assertEquals("1800 Flowers",list.get(1).getTitle());
             assertEquals("1800 Flowers",list.get(1).getBody());
+            Mockito.when(postService.changeData(Mockito.any())).thenReturn(list);
+            postController.changedData(post4);
     }
 }
