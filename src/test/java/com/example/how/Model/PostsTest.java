@@ -65,8 +65,8 @@ class PostsTest {
     @Test
     void setBody() {
         Posts posts=new Posts();
-        posts.setBody(null);
-        assertEquals(posts,new Posts());
+        posts.setBody("1800 flowers");
+        assertEquals(posts,posts);
     }
 
     @Test
