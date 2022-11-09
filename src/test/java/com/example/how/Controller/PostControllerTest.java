@@ -44,8 +44,8 @@ class PostControllerTest {
         Map<String, Integer> map1 = new HashMap<>();
         map.forEach((k, v) -> {map1.put("userId " + k+" : ", v.size());});
         assertNotNull(map1);
-        Mockito.when(postController.alluserDetails()).thenReturn(map1);
-        assertNotNull(postService.userId());
+        Mockito.when(postService.userId()).thenReturn(map1);
+        postController.alluserDetails();
     }
 
 

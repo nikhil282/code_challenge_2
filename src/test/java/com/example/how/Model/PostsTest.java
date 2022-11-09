@@ -16,7 +16,7 @@ class PostsTest {
     @Test
     void getUserId() {
         Posts posts=new Posts();
-        posts.getUserId();
+        posts.setUserId(98L);
         assertEquals(posts.getUserId(),posts.getUserId());
     }
 

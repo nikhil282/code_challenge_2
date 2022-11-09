@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.posts</groupId>
-    <artifactId>Users</artifactId>
+    <artifactId>how</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>how</name>
     <description>Demo project for Spring Boot</description>
@@ -44,16 +44,8 @@
             <artifactId>jakarta.persistence-api</artifactId>
             <version>2.2.3</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
+
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -81,7 +73,7 @@
                 <version>0.8.6</version>
                 <configuration>
                     <excludes><!-- Exclude model classes (POJO's) -->
-                        <exclude></exclude>
+
                     </excludes>
                 </configuration>
                 <executions>
