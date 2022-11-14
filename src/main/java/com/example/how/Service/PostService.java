@@ -3,14 +3,12 @@ package com.example.how.Service;
 import com.example.how.Model.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.*;
 
 @Service
 public class PostService {
@@ -59,12 +57,13 @@ public class PostService {
             Posts[] user = restTemplate.getForObject("http://jsonplaceholder.typicode.com/posts", Posts[].class);
             List<Posts> list = new ArrayList<>(Arrays.asList((user)));
             Posts post4 = new Posts();
-            post4.setUserId(4L);
-            post4.setId(44);
+            post4.setUserId(1L);
+            post4.setId(4);
             post4.setTitle("1800Flowers");
             post4.setBody("1800Flowers");
-            list.replaceAll(posts1 -> posts1);
-            list.remove(3);
+
+            list.set(3,post4);
+            list.removeIf(posts1 -> post4.equals(post4.getUserId()));
             return list;
         }
         catch (NullPointerException e)

@@ -1,9 +1,11 @@
 package com.example.how.Model;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,11 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class PostsTest {
     @InjectMocks Posts posts;
 
+
     @Test
     void getUserId() {
         Posts posts=new Posts();
         posts.setUserId(98L);
-        assertEquals(posts.getUserId(),posts.getUserId());
+
+        assertEquals(posts,posts);
     }
 
     @Test
@@ -45,6 +49,7 @@ class PostsTest {
     void setUserId() {
         Posts posts=new Posts();
         posts.setUserId(56L);
+        this.getUserId();
         assertEquals(posts.getUserId(),posts.getUserId());
     }
 
@@ -77,13 +82,19 @@ class PostsTest {
         posts.equals(posts.getTitle());
         posts.equals(posts.getBody());
         posts.equals(posts);
-        assertEquals(posts.equals(posts),posts.equals(new Posts()));
+        posts.equals(new Posts());
+        Assertions.assertEquals(posts.equals(posts),posts.equals(new Posts()));
     }
 
     @Test
     void canEqual() {
         Posts posts=new Posts();
+        posts.canEqual(posts.getUserId());
+        posts.canEqual(posts.getId());
+        posts.canEqual(posts.getTitle());
+        posts.equals(posts.getBody());
         posts.canEqual(posts);
+
         assertEquals(posts.canEqual(posts),posts.canEqual(new Posts()));
     }
 
@@ -91,6 +102,9 @@ class PostsTest {
     void testHashCode() {
         Posts posts=new Posts();
         posts.hashCode();
+        posts.setId(4);
+
+
         assertEquals(posts.hashCode(),posts.hashCode());
     }
 
